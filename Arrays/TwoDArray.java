@@ -1,3 +1,5 @@
+package Arrays;
+
 import java.util.Arrays;
 
 public class TwoDArray {
@@ -11,6 +13,5 @@ public class TwoDArray {
         arr2[0] = new int[2];
         arr2[1] = new int[5];
         System.out.println(Arrays.deepToString(arr2));
-
     }
 }

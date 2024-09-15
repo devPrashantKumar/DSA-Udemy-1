@@ -1,4 +1,4 @@
-package ArrayProject1;
+package Arrays.ArrayProject1;
 import java.util.Scanner;
 
 public class ArraysProject1 {

@@ -10,42 +10,31 @@ public class StackUsingArray {
     }
 
     public boolean isEmpty() {
-        if(topOfStack==-1){
-            return true;
-        }
-        return false;
+        return topOfStack==-1;
     }
 
     public boolean isFull(){
-        if(topOfStack==arr.length-1){
-            return true;
-        }
-        return false;
+        return topOfStack==arr.length-1;
     }
 
     public void push(int value)  throws StackSpaceException {
         if(isFull()){
             throw new StackSpaceException("Stack is Full");
         }
-        else{
-            this.arr[++topOfStack] = value;
-        }
+        this.arr[++topOfStack] = value;
     }
 
     public int pop() throws StackSpaceException { 
         if(isEmpty()){
             throw new StackSpaceException("Stack is Empty");
         }
-        else{
-            return this.arr[topOfStack--];
-        }
+        return this.arr[topOfStack--];
     }
 
     public int peek() throws StackSpaceException {
         if(isEmpty()){
             throw new StackSpaceException("Stack is Empty");
-        }else{
-            return this.arr[topOfStack];
         }
+        return this.arr[topOfStack];
     }
 }

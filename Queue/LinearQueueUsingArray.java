@@ -1,9 +1,9 @@
 package Queue;
 
 public class LinearQueueUsingArray {
-    int[] arr;
-    int beginningOfQueue;
-    int endOfQueue;
+    private int[] arr;
+    private int beginningOfQueue;
+    private int endOfQueue;
 
     public LinearQueueUsingArray(int size) {
         this.arr = new int[size];

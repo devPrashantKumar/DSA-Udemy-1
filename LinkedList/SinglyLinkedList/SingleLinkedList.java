@@ -13,7 +13,7 @@ public class SingleLinkedList {
         } else if (location == 0) {
             newNode.next = head;
             head = newNode;
-        } else if (location == size) {
+        } else if (location >= size) {
             tail.next = newNode;
             tail = tail.next;
         } else {

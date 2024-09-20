@@ -26,8 +26,8 @@ public class CircularQueueUsingArray {
         if(isEmpty()){
             beginningOfQueue=0;
         }
-        this.arr[(endOfQueue+1)%this.arr.length]=value;
         endOfQueue = (endOfQueue+1)%this.arr.length;
+        this.arr[endOfQueue]=value;
     }
 
     public int dequeue(){
@@ -35,8 +35,13 @@ public class CircularQueueUsingArray {
             throw new QueueSpaceException("Queue is Empty");
         }
         int value = this.arr[beginningOfQueue];
-        beginningOfQueue = (beginningOfQueue+1)%this.arr.length;
-        
+        if(beginningOfQueue==endOfQueue){
+            beginningOfQueue=-1;
+            endOfQueue=-1;
+        }
+        else{
+            beginningOfQueue = (beginningOfQueue+1)%this.arr.length;
+        }
         return value;
     }
 

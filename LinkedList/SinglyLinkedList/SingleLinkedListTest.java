@@ -10,13 +10,13 @@ public class SingleLinkedListTest {
         sLL.traverseLinkedList();
         sLL.insertElement(1,13); 
         sLL.traverseLinkedList();
-        Node nodeLoc1 =sLL.searchLinkedList(10);
-        if(nodeLoc1!=null){
-            System.out.println("Node Found : "+nodeLoc1.value);
+        Integer nodeValue =sLL.searchLinkedList(10);
+        if(nodeValue!=null){
+            System.out.println("Node Found : "+nodeValue);
         }
-        Node nodeLoc2 = sLL.searchLinkedList(15);
-        if(nodeLoc2==null){
-            System.out.println("Node Not Found");
+        Integer nodeValue2 = sLL.searchLinkedList(15);
+        if(nodeValue2==null){
+            System.out.println("Node Not Found : "+nodeValue2);
         }
         sLL.traverseLinkedList();
         sLL.deleteLinkedList();

@@ -25,7 +25,7 @@ public class CircularQueueUsingArrayTest {
         circularQueueUsingArray.enqueue(0);
         System.out.println("Queue is Empty : "+circularQueueUsingArray.isEmpty());
         System.out.println("Queue is Full : "+circularQueueUsingArray.isFull());
-        
+
         System.out.println("Element peeked : "+circularQueueUsingArray.peek());
         System.out.println("Element dequed : "+circularQueueUsingArray.dequeue());
         System.out.println("Element peeked : "+circularQueueUsingArray.peek());
@@ -43,7 +43,5 @@ public class CircularQueueUsingArrayTest {
         } catch (Exception e) {
             System.out.println(e);;
         }
-
-
     }
 }

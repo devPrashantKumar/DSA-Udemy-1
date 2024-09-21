@@ -1,6 +1,19 @@
 package LinkedList.SinglyLinkedList;
 
 public class SingleLinkedList {
+    class Node {
+        public int value;
+        public Node next;
+    
+        public Node() {
+        }
+    
+        public Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
     Node head;
     Node tail;
     int size;
@@ -36,11 +49,11 @@ public class SingleLinkedList {
         System.out.println();
     }
 
-    public Node searchLinkedList(int value) {
+    public Integer searchLinkedList(int value) {
         Node current = head;
         while (current != null) {
             if(value==current.value){
-                return current;
+                return current.value;
             }
             current = current.next;
         }

@@ -23,5 +23,4 @@ public class SingleLinkedListTest {
         sLL.traverseLinkedList();
 
     }
-    
 }

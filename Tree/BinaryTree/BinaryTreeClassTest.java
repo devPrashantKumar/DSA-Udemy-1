@@ -29,6 +29,30 @@ public class BinaryTreeClassTest {
         btc.postOrderTraversal(btc.root);
         System.out.println();
         btc.levelOrderTraversal();
+        System.out.println();
+
+        System.out.println("15 is available "+btc.searchUsingRecursion(btc.root, 15));
+        System.out.println("20 is available "+btc.searchUsingRecursion(btc.root, 20));
+        System.out.println("15 is available "+btc.searchUsinglevelOrderTraversal(15));
+        System.out.println("20 is available "+btc.searchUsinglevelOrderTraversal(20));
+
+        BinaryTreeClass btc2 = new BinaryTreeClass();
+        btc2.insertBinaryTreeNode(11);
+        btc2.insertBinaryTreeNode(12);
+        btc2.insertBinaryTreeNode(13);
+        btc2.insertBinaryTreeNode(14);
+        btc2.insertBinaryTreeNode(15);
+        btc2.insertBinaryTreeNode(16);
+        btc2.insertBinaryTreeNode(17);
+        btc2.insertBinaryTreeNode(18);
+        btc2.insertBinaryTreeNode(19);
+        btc2.levelOrderTraversal();
+        System.out.println();
+        btc2.deleteBinaryTreeNode(13);
+        btc2.levelOrderTraversal();
+        System.out.println();
+
+
 
 
     }

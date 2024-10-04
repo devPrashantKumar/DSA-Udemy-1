@@ -19,7 +19,7 @@ public class BinaryTreeNodeUsingArrayChildren {
 
     public void printBinaryTree(int level){
         String indentation = " ".repeat(level);
-        System.out.println(indentation+data);
+        System.out.println(indentation+data); 
         if(children[0]!=null) children[0].printBinaryTree(level+1);
         if(children[1]!=null) children[1].printBinaryTree(level+1);
     }

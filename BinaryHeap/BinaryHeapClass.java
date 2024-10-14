@@ -70,4 +70,8 @@ public class BinaryHeapClass {
         arr[++sizeOfTree] = data;
         heapify(sizeOfTree);
     }
+
+    public void deleteBH(){
+        this.arr = null;
+    }
 }

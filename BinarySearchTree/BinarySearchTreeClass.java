@@ -1,4 +1,4 @@
-package Tree.BinarySearchTree;
+package BinarySearchTree;
 
 public class BinarySearchTreeClass {
 	BinarySearchTreeNode root;
@@ -70,6 +70,23 @@ public class BinarySearchTreeClass {
 		printpreOrderTraversal(node.right);
 	}
 	
+	public BinarySearchTreeNode searchBSTNode(int data){
+        BinarySearchTreeNode current = root;
+        while(current!=null){
+            if(current.data==data) return current;
+            else if(data<=current.data) current = current.left;
+            else current=current.right;
+        }
+        return null;
+    }
+
+    public BinarySearchTreeNode searchBSTNodeUsingRecursion(BinarySearchTreeNode root, int data){
+        if(root==null) return null;
+        if(root.data==data) return root;
+        else if(data<=root.data) return searchBSTNodeUsingRecursion(root.left, data);
+        else return searchBSTNodeUsingRecursion(root.right, data);
+    }
+
 	public BinarySearchTreeNode deleteBinarySearchTreeNode(BinarySearchTreeNode node, int data) {
 		return node;
 	}

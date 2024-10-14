@@ -1,4 +1,4 @@
-package Tree.BinarySearchTree;
+package BinarySearchTree;
 
 public class BinarySearchTreeNode {
 	int data;

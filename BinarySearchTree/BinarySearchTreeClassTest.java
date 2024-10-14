@@ -9,8 +9,8 @@ public class BinarySearchTreeClassTest {
 		bst.root = bst.insertBinarySearchTreeNode(bst.root, 14);
 		bst.root = bst.insertBinarySearchTreeNode(bst.root, 5);
 		bst.root = bst.insertBinarySearchTreeNode(bst.root, 0);
-		bst.printInorderTraversal(bst.root);
-		System.out.println();
+		bst.root = bst.insertBinarySearchTreeNode(bst.root, 7);
+		
 
 		BinarySearchTreeClass bst1 = new BinarySearchTreeClass();
 		bst1.insertBinarySearchTreeNode2(10);
@@ -19,12 +19,30 @@ public class BinarySearchTreeClassTest {
 		bst1.insertBinarySearchTreeNode2(14);
 		bst1.insertBinarySearchTreeNode2(5);
 		bst1.insertBinarySearchTreeNode2(0);
+		bst1.insertBinarySearchTreeNode2(7);
+
+
+		bst.printInorderTraversal(bst.root);
+		System.out.println();
 		bst1.printInorderTraversal(bst1.root);
 		System.out.println();
+		System.out.println("---------------------------------------------");
 		bst.printpreOrderTraversal(bst.root);
 		System.out.println();
-		bst.printpostOrderTraversal(bst.root);
-
+		bst1.printpreOrderTraversal(bst1.root);
 		System.out.println();
+		System.out.println("---------------------------------------------");
+		bst.printpostOrderTraversal(bst.root);
+		System.out.println();
+		bst1.printpostOrderTraversal(bst1.root);
+		System.out.println();
+		System.out.println("---------------------------------------------");
+
+
+		System.out.println("---------------------------------------------");
+		System.out.println("---------------------------------------------");
+
+		BinarySearchTreeNode deletedNode = bst.deleteBinarySearchTreeNode(bst.root, 5);
+		System.out.println("node deleted : "+deletedNode.data);
 	}
 }

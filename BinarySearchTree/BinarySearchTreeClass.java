@@ -12,7 +12,7 @@ public class BinarySearchTreeClass {
 		if(node == null) {
 			return new BinarySearchTreeNode(data);
 		}
-		if(data<root.data) {
+		if(data<node.data) {
 			node.left = insertBinarySearchTreeNode(node.left,data);
 		}else {
 			node.right = insertBinarySearchTreeNode(node.right, data);
@@ -88,6 +88,49 @@ public class BinarySearchTreeClass {
     }
 
 	public BinarySearchTreeNode deleteBinarySearchTreeNode(BinarySearchTreeNode node, int data) {
-		return node;
+		if(node==null)  return null;
+		BinarySearchTreeNode parent = null;
+		BinarySearchTreeNode current = node;
+		while(current!=null && current.data!=data){
+			parent = current;
+			if(data<current.data){
+				current = current.left;
+			}
+			else{
+				current = current.right;
+			}
+		}
+		if(current==null) return null;
+		if(current.left==null && current.right==null){
+			if(parent==null) root=null;
+			else if(parent.left==current) parent.left=null;
+			else if(parent.right==current) parent.right=null;
+			return current;
+		}
+		else if(current.left==null){
+			if(parent.left==current) parent.left = current.right;
+			else if(parent.right==current) parent.right=current.right;
+			return current;
+		}
+		else if(current.right==null){
+			if(parent.left==current) parent.left = current.left;
+			else if(parent.right==current) parent.right = current.left;
+			return current;
+		}
+		else{
+			BinarySearchTreeNode nextMaximum = nextMaximumNode(current);
+			int tempData = current.data;
+			current.data = nextMaximum.data;
+			nextMaximum.data = tempData;
+			return deleteBinarySearchTreeNode(current, tempData);
+		}
+	}
+
+	public BinarySearchTreeNode nextMaximumNode(BinarySearchTreeNode node){
+		BinarySearchTreeNode next = node.right;
+		while(next !=null && next.left!=null){
+			next=next.left;
+		}
+		return next;
 	}
 }

@@ -2,33 +2,33 @@ package Hashing;
 
 public class LinearProbingTest {
     public static void main(String[] args) {
-        LinearProbing lb = new LinearProbing(10);
+        LinearProbing lp = new LinearProbing(10);
 
-        lb.insertElement("Hello");
-        lb.insertElement("World");
-        lb.insertElement("abc");
-        lb.insertElement("good");
-        lb.printHashTable();
+        lp.insertElement("Hello");
+        lp.insertElement("World");
+        lp.insertElement("abc");
+        lp.insertElement("good");
+        lp.printHashTable();
         System.out.println("---------------------------------------------------");
-        System.out.println("element exists : "+lb.searchElement("klm"));
-        System.out.println("element exists : "+lb.searchElement("World"));
-        System.out.println("element deleted : "+lb.deleteElement("def"));
-        System.out.println("element deleted : "+lb.deleteElement("World"));
-        System.out.println("element exists : "+lb.searchElement("World"));
+        System.out.println("element exists : "+lp.searchElement("klm"));
+        System.out.println("element exists : "+lp.searchElement("World"));
+        System.out.println("element deleted : "+lp.deleteElement("def"));
+        System.out.println("element deleted : "+lp.deleteElement("World"));
+        System.out.println("element exists : "+lp.searchElement("World"));
         System.out.println("---------------------------------------------------");
-        lb.printHashTable();
+        lp.printHashTable();
         System.out.println("---------------------------------------------------");
-        lb.insertElement("Hello1");
-        lb.insertElement("Hello2");
-        lb.insertElement("Hello3");
-        lb.insertElement("Hello4");
-        lb.insertElement("Hello5");
-        lb.insertElement("Hello6");
-        lb.insertElement("Hello7");
-        lb.insertElement("Hello8");
-        lb.insertElement("Hello9");
-        lb.insertElement("Hello10");
-        lb.printHashTable();
+        lp.insertElement("Hello1");
+        lp.insertElement("Hello2");
+        lp.insertElement("Hello3");
+        lp.insertElement("Hello4");
+        lp.insertElement("Hello5");
+        lp.insertElement("Hello6");
+        lp.insertElement("Hello7");
+        lp.insertElement("Hello8");
+        lp.insertElement("Hello9");
+        lp.insertElement("Hello10");
+        lp.printHashTable();
         System.out.println("---------------------------------------------------");
 
 

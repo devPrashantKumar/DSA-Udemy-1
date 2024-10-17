@@ -1,10 +1,10 @@
 package Hashing;
 
-public class LinearProbing {
+public class QuadraticProbing {
     String[] hashTable;
     int usedCells;
 
-    public LinearProbing(int size) {
+    public QuadraticProbing(int size) {
         this.hashTable = new String[size];
         this.usedCells = 0;
     }
@@ -15,6 +15,12 @@ public class LinearProbing {
             sum += key.charAt(i);
         }
         return sum%hashTable.length;
+    }
+
+    public void printHashTable(){
+        for(int i=0;i<hashTable.length;i++){
+            System.out.println("index : "+i+" key : "+hashTable[i]);
+        }
     }
 
     public double loadFactor(){
@@ -32,13 +38,13 @@ public class LinearProbing {
 
     public void insertElement(String key){
         double loadFactor = loadFactor();
-        if(loadFactor>=0.75){
+        if(loadFactor >= 0.75){
             resizeHashTable();
         }
         int hash = hashValue(key);
         for(int i=0;i<hashTable.length;i++){
-            int newIndex = (hash+i)%hashTable.length;
-            if(hashTable[newIndex]==null || hashTable[newIndex].equals("DELETED") ) {
+            int newIndex = (hash+i*i)%hashTable.length;
+            if(hashTable[newIndex]==null || hashTable[newIndex].equals("DELETED")){
                 hashTable[newIndex]=key;
                 usedCells++;
                 break;
@@ -49,11 +55,11 @@ public class LinearProbing {
     public boolean searchElement(String key){
         int hash = hashValue(key);
         for(int i=0;i<hashTable.length;i++){
-            int newIndex = (hash+i)%hashTable.length;
+            int newIndex = (hash+i*i)%hashTable.length;
             if(hashTable[newIndex]==null){
                 return false;
             }
-            if(hashTable[newIndex].equals(key)) {
+            if(hashTable[newIndex].equals(key)){
                 return true;
             }
         }
@@ -63,8 +69,8 @@ public class LinearProbing {
     public boolean deleteElement(String key){
         int hash = hashValue(key);
         for(int i=0;i<hashTable.length;i++){
-            int newIndex = (hash+i)%hashTable.length;
-            if(hashTable[newIndex]!=null && hashTable[newIndex].equals(key)) {
+            int newIndex = (hash+i*i)%hashTable.length;
+            if(hashTable[newIndex]!=null && hashTable[newIndex].equals(key)){
                 hashTable[newIndex]="DELETED";
                 usedCells--;
                 return true;
@@ -72,11 +78,4 @@ public class LinearProbing {
         }
         return false;
     }
-
-    public void printHashTable(){
-        for(int i=0;i<hashTable.length;i++){
-            System.out.println("index : "+i+" key : "+hashTable[i]);
-        }
-    }
-    
 }

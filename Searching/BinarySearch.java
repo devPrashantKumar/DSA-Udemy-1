@@ -1,11 +1,18 @@
 package Searching;
 
 public class BinarySearch {
-    
+    /*
+     * Time Complexity - O(logn)
+     * Space Complexity - O(logn) for recursive stack
+     */
     public static Integer binarySearchUsingRecursion(Integer[] arr, Integer data){
         return binarySearchUtilForRecursion(arr,data,0,arr.length-1);
     }
 
+    /*
+     * Time Complexity - O(logn)
+     * Space Complexity - O(1)
+     */
     public static Integer binarySearchUsingIteration(Integer[] arr, Integer data){
         return binarySearchUtilForIteration(arr,data,0,arr.length-1);
     }

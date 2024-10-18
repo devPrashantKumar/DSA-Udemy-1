@@ -1,6 +1,12 @@
 package Sorting.InsertionSort;
 
 public class InsertionSortClass {
+    /* 
+     * Time Complexity O(n^2)
+     * Space Complexity O(1)
+     * In-Place Algorithm
+     * Stable Algorithm
+     */
     public static int[] InsertionSort(int[] arr){
         int n = arr.length;
         for(int i=1;i<n;i++){
@@ -10,13 +16,10 @@ public class InsertionSortClass {
                 if(arr[j]>element){
                     arr[j+1]=arr[j];
                 }else{
-                    arr[j+1]=element;
                     break;
                 }
             }
-            if(j==-1){
-                arr[0]=element;  
-            }
+            arr[j+1]=element;
         }
         return arr;
     }

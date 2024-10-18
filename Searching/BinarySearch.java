@@ -20,7 +20,8 @@ public class BinarySearch {
     public static Integer binarySearchUtilForRecursion(Integer[] arr, Integer data, int start, int end){
         if(start>end) return null;
         int mid = start+((end-start)/2);
-        if(arr[mid]==data) return arr[mid];
+        //int mid = (start-1)+((end-start+1)/2); wrong formula
+        if(arr[mid].equals(data)) return arr[mid];
         else if(arr[mid]>data) return binarySearchUtilForRecursion(arr, data, start, mid-1);
         else return binarySearchUtilForRecursion(arr, data, mid+1, end);
     }
@@ -28,7 +29,8 @@ public class BinarySearch {
     public static Integer binarySearchUtilForIteration(Integer[] arr, Integer data, int start, int end){
         while(start<=end){
             int mid = start+((end-start)/2);
-            if(arr[mid]==data) return arr[mid];
+            // int mid = (start-1)+((end-start+1)/2); wrong formula
+            if(arr[mid].equals(data)) return arr[mid];
             else if(arr[mid]>data) end = mid-1;
             else start = mid+1;
         }

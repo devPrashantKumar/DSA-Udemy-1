@@ -21,7 +21,5 @@ public class  BinarySearchTest{
         System.out.println("Element found 0 - "+BinarySearch.binarySearchUsingIteration(arr, 0));
         System.out.println("Element found 11 - "+BinarySearch.binarySearchUsingIteration(arr, 11));
         System.out.println("Element found 25 - "+BinarySearch.binarySearchUsingIteration(arr, 25));
-
-
     }
 }

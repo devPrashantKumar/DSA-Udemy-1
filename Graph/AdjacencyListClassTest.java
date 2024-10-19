@@ -1,4 +1,5 @@
 package Graph;
+import java.util.*;
 
 public class AdjacencyListClassTest {
     public static void main(String[] args) {
@@ -8,5 +9,6 @@ public class AdjacencyListClassTest {
         adjacencyListClass.addUndirectedEdge(2, 4);
         adjacencyListClass.addDirectedEdge(0, 3);
         adjacencyListClass.printAdjacencyList();
+        System.out.println(Arrays.toString(adjacencyListClass.BFSInAdjacencyList()));
     }
 }

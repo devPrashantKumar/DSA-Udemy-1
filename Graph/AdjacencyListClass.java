@@ -58,4 +58,28 @@ public class AdjacencyListClass {
         }
         return traversalResult;
     }
+
+    public int[] DFSInAdjacencyList() {
+        int[] traversalResult = new int[vertices];
+        int[] visited = new int[vertices];
+        int k = 0;
+        Stack<Integer> stk = new Stack<>();
+        for (int v = 0; v < visited.length; v++) {
+            if (visited[v] == 0) {
+                stk.add(v);
+                visited[v] = 1;
+                while (!stk.isEmpty()) {
+                    int vertex = stk.pop();
+                    traversalResult[k++] = vertex;
+                    for (int i = 0; i < adjacencyList[vertex].size(); i++) {
+                        if (visited[adjacencyList[vertex].get(i)] == 0) {
+                            stk.add(adjacencyList[vertex].get(i));
+                            visited[adjacencyList[vertex].get(i)] = 1;
+                        }
+                    }
+                }
+            }
+        }
+        return traversalResult;
+    }
 }

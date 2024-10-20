@@ -9,5 +9,9 @@ public class AdjacencyMatrixClassTest {
         adjacencyMatrixClass.addDirectedEdge(0, 3);
         adjacencyMatrixClass.printAdjacencyMatrix();
         System.out.println(Arrays.toString(adjacencyMatrixClass.BFSInAdjacencyMatrix()));
+        System.out.println(Arrays.toString(adjacencyMatrixClass.DFSInAdjacencyMatrix()));
+        System.out.println(Arrays.toString(adjacencyMatrixClass.BFSInAdjacencyMatrix2()));
+
+
     }
 }

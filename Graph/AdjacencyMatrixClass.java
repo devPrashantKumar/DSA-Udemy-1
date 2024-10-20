@@ -37,8 +37,8 @@ public class AdjacencyMatrixClass {
         int k = 0;
         for (int v = 0; v < visited.length; v++) {
             if (visited[v] == 0) {
-                queue.add(0);
-                visited[0] = 1;
+                queue.add(v);
+                visited[v] = 1;
                 while (!queue.isEmpty()) {
                     Integer vertex = queue.poll();
                     traversalResult[k++] = vertex;
@@ -53,4 +53,55 @@ public class AdjacencyMatrixClass {
         }
         return traversalResult;
     }
+
+    public int[] DFSInAdjacencyMatrix(){
+        int[] traversalResult = new int[vertices];
+        Stack<Integer> stk = new Stack<>();
+        int[] visited = new int[vertices];
+        int k = 0;
+        for (int v = 0; v < visited.length; v++) {
+            if (visited[v] == 0) {
+                stk.add(v);
+                visited[v] = 1;
+                while (!stk.isEmpty()) {
+                    Integer vertex = stk.pop();
+                    traversalResult[k++] = vertex;
+                    for (int i = 0; i < adjacencyMatrix[vertex].length; i++) {
+                        if (adjacencyMatrix[vertex][i] != 0 && visited[i] == 0) {
+                            stk.add(i);
+                            visited[i] = 1;
+                        }
+                    }
+                }
+            }
+        }
+        return traversalResult;
+    }
+
+
+    public int[] BFSInAdjacencyMatrix2() {
+        int[] traversalResult = new int[vertices];
+        Queue<Integer> queue = new LinkedList<>();
+        int[] visited = new int[vertices];
+        int k = 0;
+        for(int v=0;v<visited.length;v++){
+            if(visited[v]==0){
+                queue.add(v);
+                while(!queue.isEmpty()){
+                    int vertex = queue.poll();
+                    if(visited[vertex]==0){
+                        traversalResult[k++]=vertex;
+                        visited[vertex]=1;
+                        for(int i=0;i<adjacencyMatrix[vertex].length;i++){
+                            if(adjacencyMatrix[vertex][i]!=0 && visited[i]==0){
+                                queue.add(i);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return traversalResult;
+    }
+
 }

@@ -10,5 +10,6 @@ public class AdjacencyListClassTest {
         adjacencyListClass.addDirectedEdge(0, 3);
         adjacencyListClass.printAdjacencyList();
         System.out.println(Arrays.toString(adjacencyListClass.BFSInAdjacencyList()));
+        System.out.println(Arrays.toString(adjacencyListClass.DFSInAdjacencyList()));
     }
 }

@@ -1,6 +1,7 @@
 package Sorting.BucketSort;
 import java.util.*;
 
+// use bucket sort only when elements are uniformly distributed
 public class BucketSortClass {
     /*Time Complexity:
      * Best Case: O(n) (when elements are uniformly distributed across buckets)
@@ -12,15 +13,16 @@ public class BucketSortClass {
      * Stable Algorithm
      */
     public static int[] bucketSort(int[] arr){
-        int numberOfBuckets = (int) Math.ceil(Math.sqrt(arr.length));
-        List<List<Integer>> list = new ArrayList<>();
+        int numberOfBuckets = (int) Math.floor(Math.sqrt(arr.length));
+        @SuppressWarnings("unchecked")
+        List<Integer>[] list = new List[numberOfBuckets];
         for (int i = 0; i < numberOfBuckets; i++) {
-            list.add(new ArrayList<>());
+            list[i] = new ArrayList<>();
         }
         int maxElement = Arrays.stream(arr).max().orElse(0);
         for(int num:arr){
-            int bucket = (int) Math.ceil(((float) num*numberOfBuckets)/maxElement);
-            list.get(bucket-1).add(num);
+            int bucketIndex = (num * (numberOfBuckets-1)) / (maxElement); 
+            list[bucketIndex].add(num);
         }
 
         for (List<Integer> bucket : list) {

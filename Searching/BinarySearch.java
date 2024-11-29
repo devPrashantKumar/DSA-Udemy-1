@@ -29,6 +29,9 @@ public class BinarySearch {
     public static Integer binarySearchUtilForIteration(Integer[] arr, Integer data, int start, int end){
         while(start<=end){
             int mid = start+((end-start)/2);
+            // The second formula used in your code, (start - 1) + ((end - start + 1) / 2), 
+            // has an issue because it calculates an incorrect mid index. 
+            // Specifically, it results in an out-of-bounds index
             // int mid = (start-1)+((end-start+1)/2); wrong formula
             if(arr[mid].equals(data)) return arr[mid];
             else if(arr[mid]>data) end = mid-1;

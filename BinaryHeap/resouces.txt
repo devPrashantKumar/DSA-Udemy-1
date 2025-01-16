@@ -1,1 +1,2 @@
 heap notes : https://www.geeksforgeeks.org/heap-data-structure/
+build heap: https://www.geeksforgeeks.org/building-heap-from-array/

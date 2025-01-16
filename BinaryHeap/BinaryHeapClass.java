@@ -36,6 +36,9 @@ public class BinaryHeapClass {
     }
 
     public void insertElementInHeap(int data) {
+        if(sizeOfTree==arr.length){
+            throw new RuntimeException("Heap overflow: Cannot insert more elements.");
+        }
         arr[sizeOfTree++] = data;
         int index = sizeOfTree-1;
         while(index!=0 && arr[parent(index)]>arr[index]){
@@ -49,25 +52,24 @@ public class BinaryHeapClass {
     public void heapify(int index) {
         int leftChild = leftChild(index);
         int rightChild = rightChild(index);
-        int minimum = Integer.MAX_VALUE;
         int minIndex = index;
-        if(leftChild<sizeOfTree && arr[leftChild]<minimum){
-            minimum = arr[leftChild];
+
+        if (leftChild < sizeOfTree && arr[leftChild] < arr[minIndex]) {
             minIndex = leftChild;
         }
 
-        if(rightChild<sizeOfTree && arr[rightChild]<minimum){
-            minimum = arr[rightChild];
+        if (rightChild < sizeOfTree && arr[rightChild] < arr[minIndex]) {
             minIndex = rightChild;
         }
 
-        if(minIndex!=index){
-            arr[minIndex]=arr[index];
-            arr[index]=minimum;
+        if (minIndex != index) {
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[index];
+            arr[index] = temp;
             heapify(minIndex);
         }
     }
-    
+
     public Integer removeMinElement() {
         if(isEmpty()) return null;
         int element  = arr[0];

@@ -8,6 +8,21 @@ public class BinaryHeapClassTest {
         bh.insertElementInHeap(3);
         bh.insertElementInHeap(18);
         bh.printLevelOrderTraversal();
+
+        System.out.println(bh.removeMinElement());
+        bh.printLevelOrderTraversal();
+
+        System.out.println(bh.removeMinElement());
+        bh.printLevelOrderTraversal();
+
+        System.out.println(bh.removeMinElement());
+        bh.printLevelOrderTraversal();
+
+        System.out.println(bh.removeMinElement());
+        bh.printLevelOrderTraversal();
+        
+        System.out.println(bh.removeMinElement());
+
     }
     
 

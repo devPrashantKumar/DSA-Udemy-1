@@ -1,12 +1,33 @@
 package BinaryHeap;
 
+/*
+ * The `buildHeap` process will not maintain the order of duplicates, 
+ * making the algorithm unstable when duplicates are present. 
+ * However, if there are no duplicates during the buildHeap process, 
+ * the algorithm is stable in this case.
+ *
+ * If elements are added one by one using insertion only (starting with an empty heap), 
+ * the order of duplicates will be maintained, making the algorithm stable in this case.
+ */
 public class BinaryHeapClass {
     private int[] arr;
     private int sizeOfTree;
 
-    public BinaryHeapClass(int size) {
+    public BinaryHeapClass(int size, int[] input) {
+        if (input.length > size) {
+            throw new IllegalArgumentException("Input size exceeds the heap capacity.");
+        }
         this.arr = new int[size];
-        this.sizeOfTree = 0;
+        for(int i=0;i<input.length;i++){
+            arr[i]=input[i];
+        }
+        this.sizeOfTree = input.length;
+        if(this.sizeOfTree>1){
+            int lastParent  = (this.sizeOfTree/2)-1;
+            for(int i=lastParent;i>=0;i--){
+                heapify(i);
+            }
+        }
     }
 
     public boolean isEmpty() {

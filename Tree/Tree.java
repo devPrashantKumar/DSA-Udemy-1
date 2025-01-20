@@ -1,23 +1,45 @@
 package Tree;
 
+import java.util.ArrayList;
+
 public class Tree {
-    public static void main(String[] args) {
-        TreeNode node1 = new TreeNode(10);
-        TreeNode node2 = new TreeNode(11);
-        TreeNode node3 = new TreeNode(12);
-        TreeNode node4 = new TreeNode(13);
-        TreeNode node5 = new TreeNode(14);
-        TreeNode node6 = new TreeNode(15);
+    class TreeNode {
+        int data;
+        ArrayList<TreeNode> children;
 
-        TreeNode root = node1;
-        node1.addChild(node2);
-        node1.addChild(node3);
-        node2.addChild(node4);
-        node3.addChild(node5);
-        node5.addChild(node6);
+        public TreeNode(int data){
+            this.data = data;
+            this.children = new ArrayList<>();
+        }
 
-        root.printTree(0);
+        public TreeNode getChild(int index){
+            return this.children.get(index);
+        }
 
+        public void addChild(int data){
+            this.children.add(new TreeNode(data));
+        }
+    }
 
+    TreeNode root;
+    
+    public Tree(){
+        root = null;
+    }
+
+    public void createRoot(int data){
+        this.root = new TreeNode(data);
+    }
+
+    public TreeNode getRoot(){
+        return this.root;
+    }
+
+    public void printTree(TreeNode root, int level){
+        String indentation = " ".repeat(level);
+        System.out.println(indentation+root.data);
+        for(TreeNode node : root.children){
+            printTree(node,level+1);
+        }
     }
 }

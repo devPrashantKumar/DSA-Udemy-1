@@ -1,0 +1,2 @@
+tree notes: https://www.geeksforgeeks.org/tree-data-structure/?ref=lbp
+tree notes: https://www.geeksforgeeks.org/introduction-to-tree-data-structure/?ref=lbp

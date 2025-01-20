@@ -7,7 +7,20 @@ public class BinaryTreeNode {
 
     public BinaryTreeNode(int data){
         this.data = data;
-        this.left=null;
-        this.right=null;
+    }
+
+    public void addLeftChild(BinaryTreeNode child){
+        this.left = child;
+    }
+
+    public void addRightChild(BinaryTreeNode child){
+        this.right = child;
+    }
+
+    public void printBinaryTree(int level){
+        String indentation = " ".repeat(level);
+        System.out.println(indentation+data);
+        if(left!=null)left.printBinaryTree(level+1);
+        if(right!=null)right.printBinaryTree(level+1);
     }
 }

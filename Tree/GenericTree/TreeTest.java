@@ -1,4 +1,4 @@
-package Tree;
+package Tree.GenericTree;
 
 public class TreeTest {
     public static void main(String[] args) {
@@ -22,6 +22,6 @@ public class TreeTest {
         child2.addChild(6);
 
         // Print the tree
-        tree.printTree(tree.getRoot(), 0);
+        tree.printTree();
     }
 }

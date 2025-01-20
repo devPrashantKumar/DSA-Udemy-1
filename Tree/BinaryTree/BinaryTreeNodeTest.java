@@ -1,4 +1,4 @@
-package Tree;
+package Tree.BinaryTree;
 
 public class BinaryTreeNodeTest {
     public static void main(String[] args) {

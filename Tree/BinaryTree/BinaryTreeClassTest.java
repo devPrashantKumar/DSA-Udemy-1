@@ -51,10 +51,6 @@ public class BinaryTreeClassTest {
         btc2.deleteBinaryTreeNode(13);
         btc2.levelOrderTraversal();
         System.out.println();
-
-
-
-
     }
     
 }

@@ -1,4 +1,4 @@
-package Tree;
+package Tree.BinaryTreeUsingArray.BinaryTreeNodeUsingArrayChildren;
 
 public class BinaryTreeNodeUsingArrayChildren {
     int data;

@@ -1,4 +1,4 @@
-package Tree;
+package Tree.GenericTree;
 
 public class TreeNodeTest {
     public static void main(String[] args) {

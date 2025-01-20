@@ -1,4 +1,4 @@
-package Tree.BinaryTree.BinaryTreeArray;
+package Tree.BinaryTreeUsingArray.BinaryTreeArrayExtra;
 
 public class BinaryTreeArrayClassTest {
     public static void main(String[] args) {

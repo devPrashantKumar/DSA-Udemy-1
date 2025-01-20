@@ -1,4 +1,4 @@
-package Tree;
+package Tree.GenericTree;
 
 import java.util.ArrayList;
 
@@ -35,11 +35,15 @@ public class Tree {
         return this.root;
     }
 
-    public void printTree(TreeNode root, int level){
+    public void printTree(){
+        printTreeUtil(this.root, 0);
+    }
+    
+    public void printTreeUtil(TreeNode root, int level){
         String indentation = " ".repeat(level);
         System.out.println(indentation+root.data);
         for(TreeNode node : root.children){
-            printTree(node,level+1);
+            printTreeUtil(node,level+1);
         }
     }
 }

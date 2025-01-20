@@ -3,7 +3,7 @@ package Tree.BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BinaryTreeClass {
+public class BinaryTree {
     class BinaryTreeNode {
         int data;
         BinaryTreeNode left;
@@ -14,11 +14,27 @@ public class BinaryTreeClass {
             this.left=null;
             this.right=null;
         }
+
+        public void addLeftChild(int data){
+            this.left = new BinaryTreeNode(data);
+        }
+    
+        public void addRightChild(int data){
+            this.right = new BinaryTreeNode(data);
+        }
+
+        public BinaryTreeNode getLeftChild(){
+            return this.left;
+        }
+    
+        public BinaryTreeNode getRightChild(){
+            return this.right;
+        }
     }
     
     BinaryTreeNode root;
 
-    public BinaryTreeClass() {
+    public BinaryTree() {
         this.root = null;
     }
 

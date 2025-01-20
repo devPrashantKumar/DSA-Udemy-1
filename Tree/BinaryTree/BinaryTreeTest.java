@@ -1,8 +1,8 @@
 package Tree.BinaryTree;
 
-public class BinaryTreeClassTest {
+public class BinaryTreeTest {
     public static void main(String[] args) {
-        BinaryTreeClass btc = new BinaryTreeClass();
+        BinaryTree btc = new BinaryTree();
         try {
             btc.printBinaryTree(btc.root, 0);
         } catch (Exception e) {
@@ -36,7 +36,7 @@ public class BinaryTreeClassTest {
         System.out.println("15 is available "+btc.searchUsinglevelOrderTraversal(15));
         System.out.println("20 is available "+btc.searchUsinglevelOrderTraversal(20));
 
-        BinaryTreeClass btc2 = new BinaryTreeClass();
+        BinaryTree btc2 = new BinaryTree();
         btc2.insertBinaryTreeNode(11);
         btc2.insertBinaryTreeNode(12);
         btc2.insertBinaryTreeNode(13);
@@ -51,6 +51,7 @@ public class BinaryTreeClassTest {
         btc2.deleteBinaryTreeNode(13);
         btc2.levelOrderTraversal();
         System.out.println();
+        btc2.printBinaryTree(btc.root, 0);
     }
     
 }

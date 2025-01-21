@@ -16,6 +16,7 @@ public class StackUsingLinkedList {
     }
 
     StackNode head;
+
     public boolean isEmpty() {
         return head == null;
     }
@@ -39,4 +40,24 @@ public class StackUsingLinkedList {
         }
         return head.value;
     }
+
+    @Override
+    public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        }
+        StringBuilder sb = new StringBuilder();
+        StackNode current = head;
+        sb.append("[");
+        while (current != null) {
+            sb.append(current.value);
+            if (current.next != null) {
+                sb.append(", ");
+            }
+            current = current.next;
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
 }

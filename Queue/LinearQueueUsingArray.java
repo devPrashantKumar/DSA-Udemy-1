@@ -31,7 +31,7 @@ public class LinearQueueUsingArray {
 
     public int dequeue() throws QueueSpaceException {
         if (isEmpty()) {
-            throw new QueueSpaceException("Stack is Empty");
+            throw new QueueSpaceException("Queue is Empty");
         }
         int value = this.arr[beginningOfQueue++];
         if (beginningOfQueue > endOfQueue) {
@@ -45,6 +45,23 @@ public class LinearQueueUsingArray {
             throw new QueueSpaceException("Stack is Empty");
         }
         return this.arr[beginningOfQueue];
+    }
+
+    @Override
+    public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = beginningOfQueue; i <= endOfQueue; i++) {
+            sb.append(arr[i]);
+            if (i < endOfQueue) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
 }

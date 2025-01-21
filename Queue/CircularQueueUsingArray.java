@@ -51,4 +51,24 @@ public class CircularQueueUsingArray {
         }
         return this.arr[beginningOfQueue];
     }
+
+    @Override
+    public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        int i = beginningOfQueue;
+        while (true) {
+            sb.append(arr[i]);
+            if (i == endOfQueue) {
+                break;
+            }
+            i = (i + 1) % arr.length;
+            sb.append(", ");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 }

@@ -44,4 +44,23 @@ public class QueueUsingLinkedList {
         }
         return head.value;
     }
+
+    @Override
+    public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        QueueNode current = head;
+        while (current != null) {
+            sb.append(current.value);
+            if (current.next != null) {
+                sb.append(", ");
+            }
+            current = current.next;
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 }

@@ -42,7 +42,7 @@ public class BinarySearchTreeClassTest {
 		System.out.println("---------------------------------------------");
 		System.out.println("---------------------------------------------");
 
-		BinarySearchTreeNode deletedNode = bst.deleteBinarySearchTreeNode(5);
+		BinarySearchTreeClass.BinarySearchTreeNode deletedNode = bst.deleteBinarySearchTreeNode(5);
 		System.out.println("node deleted : "+deletedNode.data);
 	}
 }

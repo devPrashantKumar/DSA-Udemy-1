@@ -1,7 +1,17 @@
 package BinarySearchTree;
 
 public class BinarySearchTreeClass {
-	BinarySearchTreeNode root;
+	class BinarySearchTreeNode {
+		int data;
+		BinarySearchTreeNode left;
+		BinarySearchTreeNode right;
+		
+		public BinarySearchTreeNode(int data) {
+			this.data = data;
+		}
+	}
+
+	private BinarySearchTreeNode root;
 
 	public BinarySearchTreeClass() {
 		this.root = null;

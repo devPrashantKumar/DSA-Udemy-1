@@ -4,12 +4,12 @@ public class BinaryTreeTest {
     public static void main(String[] args) {
         BinaryTree btc = new BinaryTree();
         try {
-            btc.printBinaryTree(btc.root, 0);
+            btc.printBinaryTree();
         } catch (Exception e) {
            System.out.println(e);
         }
 
-        btc.preOrderTraversal(btc.root);
+        btc.preOrderTraversal();
         System.out.println();
 
         btc.addRoot(11);
@@ -22,11 +22,11 @@ public class BinaryTreeTest {
         btc.addLeftChild(btc.root.left.left, 18);
         btc.addRightChild(btc.root.left.left, 19);
 
-        btc.preOrderTraversal(btc.root);
+        btc.preOrderTraversal();
         System.out.println();
-        btc.inOrderTraversal(btc.root);
+        btc.inOrderTraversal();
         System.out.println();
-        btc.postOrderTraversal(btc.root);
+        btc.postOrderTraversal();
         System.out.println();
         btc.levelOrderTraversal();
         System.out.println();
@@ -51,7 +51,7 @@ public class BinaryTreeTest {
         btc2.deleteBinaryTreeNode(13);
         btc2.levelOrderTraversal();
         System.out.println();
-        btc2.printBinaryTree(btc.root, 0);
+        btc2.printBinaryTree();
     }
     
 }

@@ -8,68 +8,84 @@ public class BinaryTree {
         int data;
         BinaryTreeNode left;
         BinaryTreeNode right;
-    
-        public BinaryTreeNode(int data){
+
+        public BinaryTreeNode(int data) {
             this.data = data;
-            this.left=null;
-            this.right=null;
+            this.left = null;
+            this.right = null;
         }
 
-        public void addLeftChild(int data){
+        public void addLeftChild(int data) {
             this.left = new BinaryTreeNode(data);
         }
-    
-        public void addRightChild(int data){
+
+        public void addRightChild(int data) {
             this.right = new BinaryTreeNode(data);
         }
 
-        public BinaryTreeNode getLeftChild(){
+        public BinaryTreeNode getLeftChild() {
             return this.left;
         }
-    
-        public BinaryTreeNode getRightChild(){
+
+        public BinaryTreeNode getRightChild() {
             return this.right;
         }
     }
-    
+
     BinaryTreeNode root;
 
     public BinaryTree() {
         this.root = null;
     }
 
-    public void printBinaryTree(BinaryTreeNode root, int level) throws RuntimeException {
+    public void printBinaryTree() throws RuntimeException {
+        printBinaryTreeUtil(this.root,0);
+    }
+
+    private void printBinaryTreeUtil(BinaryTreeNode root, int level) throws RuntimeException {
         if (root == null)
             throw new RuntimeException("Empty Tree");
         String indentation = " ".repeat(level);
         System.out.println(indentation + root.data);
         if (root.left != null)
-            printBinaryTree(root.left, level + 1);
+        printBinaryTreeUtil(root.left, level + 1);
         if (root.right != null)
-            printBinaryTree(root.right, level + 1);
+        printBinaryTreeUtil(root.right, level + 1);
     }
 
-    public void preOrderTraversal(BinaryTreeNode root) {
+    public void preOrderTraversal() {
+        preOrderTraversalUtil(this.root);
+    }
+
+    private void preOrderTraversalUtil(BinaryTreeNode root) {
         if (root == null)
             return;
         System.out.print(root.data + " ");
-        preOrderTraversal(root.left);
-        preOrderTraversal(root.right);
+        preOrderTraversalUtil(root.left);
+        preOrderTraversalUtil(root.right);
     }
 
-    public void inOrderTraversal(BinaryTreeNode root) {
+    public void inOrderTraversal() {
+        inOrderTraversalUtil(this.root);
+    }
+
+    private void inOrderTraversalUtil(BinaryTreeNode root) {
         if (root == null)
             return;
-        preOrderTraversal(root.left);
+        inOrderTraversalUtil(root.left);
         System.out.print(root.data + " ");
-        preOrderTraversal(root.right);
+        inOrderTraversalUtil(root.right);
     }
 
-    public void postOrderTraversal(BinaryTreeNode root) {
+    public void postOrderTraversal() {
+        postOrderTraversalUtil(this.root);
+    }
+
+    private void postOrderTraversalUtil(BinaryTreeNode root) {
         if (root == null)
             return;
-        preOrderTraversal(root.left);
-        preOrderTraversal(root.right);
+        postOrderTraversalUtil(root.left);
+        postOrderTraversalUtil(root.right);
         System.out.print(root.data + " ");
     }
 
@@ -100,6 +116,7 @@ public class BinaryTree {
         }
         return false;
     }
+
 
     public boolean searchUsingRecursion(BinaryTreeNode root, int data) {
         if (root == null) {
@@ -158,28 +175,38 @@ public class BinaryTree {
                 current.data = lasttreeNode.data;
                 this.deleteLastNode();
                 break;
-            }
-            else{
-                if (current.left != null) queue.add(current.left);
-                if (current.right != null) queue.add(current.right);
+            } else {
+                if (current.left != null)
+                    queue.add(current.left);
+                if (current.right != null)
+                    queue.add(current.right);
             }
         }
     }
 
-    public BinaryTreeNode getLastTreeNode() {
+    private BinaryTreeNode getLastTreeNode() {
         Queue<BinaryTreeNode> queue = new LinkedList<>();
-        BinaryTreeNode prev=null;
+        BinaryTreeNode prev = null;
         queue.add(root);
         while (!queue.isEmpty()) {
             BinaryTreeNode current = queue.remove();
-            if (current.left != null) queue.add(current.left);
-            if (current.right != null) queue.add(current.right);
+            if (current.left != null)
+                queue.add(current.left);
+            if (current.right != null)
+                queue.add(current.right);
             prev = current;
         }
         return prev;
     }
 
-    public void deleteLastNode() {
+    private void deleteLastNode() {
+        if (root == null) return;
+
+        if (root.left == null && root.right == null) {
+            root = null;
+            return;
+        }
+
         BinaryTreeNode prev = null, current = null;
         Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.add(root);

@@ -4,18 +4,22 @@ public class BinarySearchTreeClass {
 	BinarySearchTreeNode root;
 
 	public BinarySearchTreeClass() {
-		super();
 		this.root = null;
 	}
-	
-	public BinarySearchTreeNode insertBinarySearchTreeNode(BinarySearchTreeNode node, int data) {
+
+
+	public void insertBinarySearchTreeNode(int data){
+		this.root = insertBinarySearchTreeNodeUtil(this.root,data);
+	}
+
+	public BinarySearchTreeNode insertBinarySearchTreeNodeUtil(BinarySearchTreeNode node, int data) {
 		if(node == null) {
 			return new BinarySearchTreeNode(data);
 		}
 		if(data<node.data) {
-			node.left = insertBinarySearchTreeNode(node.left,data);
+			node.left = insertBinarySearchTreeNodeUtil(node.left,data);
 		}else {
-			node.right = insertBinarySearchTreeNode(node.right, data);
+			node.right = insertBinarySearchTreeNodeUtil(node.right, data);
 		}
 		return node;
 	}
@@ -42,32 +46,44 @@ public class BinarySearchTreeClass {
 			parent.right = new BinarySearchTreeNode(data); 
 		}
 	}
-	
-	public void printInorderTraversal(BinarySearchTreeNode node) {
-		if(node == null) {
-			return;
-		}
-		printInorderTraversal(node.left);
-		System.out.print(node.data+" ");
-		printInorderTraversal(node.right);
+
+	public void printInorderTraversal(){
+		printInorderTraversalUtil(this.root);
 	}
 	
-	public void printpostOrderTraversal(BinarySearchTreeNode node) {
+	private void printInorderTraversalUtil(BinarySearchTreeNode node) {
 		if(node == null) {
 			return;
 		}
-		printpostOrderTraversal(node.left);
-		printpostOrderTraversal(node.right);
+		printInorderTraversalUtil(node.left);
+		System.out.print(node.data+" ");
+		printInorderTraversalUtil(node.right);
+	}
+	
+	public void printpostOrderTraversal(){
+		printpostOrderTraversalUtil(this.root);
+	}
+
+	private void printpostOrderTraversalUtil(BinarySearchTreeNode node) {
+		if(node == null) {
+			return;
+		}
+		printpostOrderTraversalUtil(node.left);
+		printpostOrderTraversalUtil(node.right);
 		System.out.print(node.data+" ");
 	}
 	
-	public void printpreOrderTraversal(BinarySearchTreeNode node) {
+	public void printpreOrderTraversal(){
+		printpreOrderTraversalUtil(this.root);
+	}
+
+	private void printpreOrderTraversalUtil(BinarySearchTreeNode node) {
 		if(node == null) {
 			return;
 		}
 		System.out.print(node.data+" ");
-		printpreOrderTraversal(node.left);
-		printpreOrderTraversal(node.right);
+		printpreOrderTraversalUtil(node.left);
+		printpreOrderTraversalUtil(node.right);
 	}
 	
 	public BinarySearchTreeNode searchBSTNode(int data){
@@ -80,14 +96,21 @@ public class BinarySearchTreeClass {
         return null;
     }
 
-    public BinarySearchTreeNode searchBSTNodeUsingRecursion(BinarySearchTreeNode root, int data){
+	public void searchBSTNodeUsingRecursion(int data){
+		searchBSTNodeUsingRecursionUtil(this.root, data);
+	}
+
+    private BinarySearchTreeNode searchBSTNodeUsingRecursionUtil(BinarySearchTreeNode root, int data){
         if(root==null) return null;
         if(root.data==data) return root;
-        else if(data<=root.data) return searchBSTNodeUsingRecursion(root.left, data);
-        else return searchBSTNodeUsingRecursion(root.right, data);
+        else if(data<=root.data) return searchBSTNodeUsingRecursionUtil(root.left, data);
+        else return searchBSTNodeUsingRecursionUtil(root.right, data);
     }
 
-	public BinarySearchTreeNode deleteBinarySearchTreeNode(BinarySearchTreeNode node, int data) {
+	public BinarySearchTreeNode deleteBinarySearchTreeNode(int data){
+		return deleteBinarySearchTreeNodeUtil(this.root, data);
+	}
+	private BinarySearchTreeNode deleteBinarySearchTreeNodeUtil(BinarySearchTreeNode node, int data) {
 		if(node==null)  return null;
 		BinarySearchTreeNode parent = null;
 		BinarySearchTreeNode current = node;
@@ -122,15 +145,45 @@ public class BinarySearchTreeClass {
 			int tempData = current.data;
 			current.data = nextMaximum.data;
 			nextMaximum.data = tempData;
-			return deleteBinarySearchTreeNode(current, tempData);
+			return deleteBinarySearchTreeNodeUtil(current, tempData);
 		}
 	}
 
-	public BinarySearchTreeNode nextMaximumNode(BinarySearchTreeNode node){
+	private BinarySearchTreeNode nextMaximumNode(BinarySearchTreeNode node){
 		BinarySearchTreeNode next = node.right;
 		while(next !=null && next.left!=null){
 			next=next.left;
 		}
 		return next;
 	}
+
+	public BinarySearchTreeNode deleteBinarySearchTreeNodeUsingRecursion(int data) {
+        return deleteBinarySearchTreeNodeUsingRecursionUtil(this.root, data);
+    }
+
+    private BinarySearchTreeNode deleteBinarySearchTreeNodeUsingRecursionUtil(BinarySearchTreeNode node, int data) {
+        if (node == null) return null;
+
+        if (data < node.data) {
+            node.left = deleteBinarySearchTreeNodeUsingRecursionUtil(node.left, data);
+        } else if (data > node.data) {
+            node.right = deleteBinarySearchTreeNodeUsingRecursionUtil(node.right, data);
+        } else {
+            // Node to be deleted found
+            if (node.left == null && node.right == null) {
+                return null; // Leaf node
+            } else if (node.left == null) {
+                return node.right; // Single right child
+            } else if (node.right == null) {
+                return node.left; // Single left child
+            } else {
+                // Node with two children
+                BinarySearchTreeNode nextMaximum = nextMaximumNode(node);
+                int tempData = nextMaximum.data;
+                node.right = deleteBinarySearchTreeNodeUsingRecursionUtil(node.right, tempData); // Delete in-order successor
+                node.data = tempData;
+            }
+        }
+        return node;
+    }
 }

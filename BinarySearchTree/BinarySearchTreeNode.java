@@ -6,7 +6,6 @@ public class BinarySearchTreeNode {
 	BinarySearchTreeNode right;
 	
 	public BinarySearchTreeNode(int data) {
-		super();
 		this.data = data;
 	}
 }

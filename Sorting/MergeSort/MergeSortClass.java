@@ -6,15 +6,15 @@ public class MergeSortClass {
         return arr;
     }
 
-    public static void mergeSortUtil(int[] arr, int startIndex, int endIndex){
+    private static void mergeSortUtil(int[] arr, int startIndex, int endIndex){
         if(endIndex-startIndex<=0) return;
-        int midIndex = (endIndex-startIndex)/2;
+        int midIndex = startIndex+((endIndex-startIndex)/2);
         mergeSortUtil(arr, startIndex, midIndex);
         mergeSortUtil(arr,midIndex+1,endIndex);
         merge(arr, startIndex, midIndex, midIndex+1, endIndex);
     }
 
-    public static int[] merge(int[] arr, int startIndex1, int endIndex1,int startIndex2,int endIndex2){
+    private static int[] merge(int[] arr, int startIndex1, int endIndex1,int startIndex2,int endIndex2){
         int[] temp1 = new int[endIndex1-startIndex1+1];
         int[] temp2 = new int[endIndex2-startIndex2+1];
 

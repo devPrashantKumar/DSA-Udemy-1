@@ -5,5 +5,9 @@ public class QuickSortClassTest {
         int[] arr = {2,3,1,7,9,6};
         QuickSortClass.quickSort(arr);
         System.out.println(Arrays.toString(arr));
+
+        int[] arr2 = {2,3,1,7,9,6,3};
+        QuickSortClass.quickSort(arr2);
+        System.out.println(Arrays.toString(arr2));
     }
 }

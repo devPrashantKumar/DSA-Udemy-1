@@ -16,18 +16,22 @@ public class QuickSortClass {
     }
 
     private static int partition(int[] arr, int start, int end) {
+        int pivot = arr[start]; 
         int left = start;
         int right = end;
 
         while (left < right) {
-            while (arr[left] <= arr[start])
+            while (left <= end && arr[left] <= pivot)
                 left++;
-            while (arr[right] > arr[start])
+            while (right >= start && arr[right] > pivot)
                 right--;
             if (left < right) {
                 swap(arr, left, right);
             }
         }
+        // swap(arr, right, start);
+        // return right;
+
         swap(arr, left-1, start);
         return left-1;
     }
